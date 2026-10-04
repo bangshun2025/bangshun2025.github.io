@@ -1,0 +1,5 @@
+# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+User-agent: *
+Disallow: /admin
+# 上线后把下面这行改成你的域名；做了 /library/ 作品集再打开
+# Sitemap: https://example.com/library/sitemap.xml

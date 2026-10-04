@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>邦顺</title>
+<meta name="description" content="邦顺的生命算法体系：用公理化思维拆解先天结构，八字为核心解码工具，通过自在班、结构报告，帮你把先天结构变成可操作的人生算法">
+<link rel="canonical" href="https://bangshun2025.github.io/library/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="邦顺">
+<meta property="og:title" content="邦顺｜人 · 物 · 书 · 器">
+<meta property="og:description" content="邦顺的生命算法体系：用公理化思维拆解先天结构，八字为核心解码工具，通过自在班、结构报告，帮你把先天结构变成可操作的人生算法">
+<meta property="og:url" content="https://bangshun2025.github.io/library/">
+<meta property="og:image" content="https://bangshun2025.github.io/brand/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="邦顺｜人 · 物 · 书 · 器">
+<meta name="twitter:description" content="邦顺的生命算法体系：用公理化思维拆解先天结构，八字为核心解码工具，通过自在班、结构报告，帮你把先天结构变成可操作的人生算法">
+<meta name="twitter:image" content="https://bangshun2025.github.io/brand/og.png">
+<link rel="icon" href="../brand/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap">
+<style>
+:root{
+  --desk:#17130F;--desk2:#221B15;
+  --paper:#F4EFE4;--paper2:#EAE3D4;--ink:#1C1A16;--ink2:#4A463D;--faint:#8C8474;--rule:#D6CDB9;
+  --red:#A8281F;--blue:#1B3A5C;--gold:#C9A227;--green:#2A4038;
+  --serif:'Noto Serif SC',Georgia,serif;--sans:'Noto Sans SC','PingFang SC',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.9,.25,1);
+  /* 纸与布的颗粒：一张 90px 的 fractalNoise，平铺后当作材质叠加层 */
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='90' height='90' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* 烫金：亮—暗—亮，模拟金属在弧面上的反光 */
+  --foil:linear-gradient(158deg,#FBE9AE 4%,#D9B44A 26%,#8A6A13 46%,#F2DC94 62%,#C79E22 82%,#7E5F10);
+  --foil-s:linear-gradient(158deg,#FFFDF6 6%,#DCD3BC 34%,#8D8674 52%,#F4EFE2 70%,#B9B099);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--desk);color:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:rgba(201,162,39,.35)}
+*::-webkit-scrollbar{width:9px;height:9px}*::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:9px}
+
+/* ===== 桌面 ===== */
+#desk{position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;
+  background:
+   radial-gradient(ellipse 58% 42% at 30% 8%,rgba(255,226,168,.16),transparent 62%),
+   radial-gradient(ellipse 120% 90% at 50% 50%,transparent 45%,rgba(0,0,0,.5)),
+   repeating-linear-gradient(91deg,rgba(255,255,255,.016) 0 1px,transparent 1px 5px),
+   repeating-linear-gradient(91deg,rgba(0,0,0,.07) 0 1px,transparent 1px 23px),
+   linear-gradient(168deg,#251D16,#15100C 72%)}
+/* 桌面的木纹颗粒 */
+#desk::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:var(--grain);background-size:190px;opacity:.032;mix-blend-mode:overlay}
+.inner{position:relative;z-index:1}
+.inner{max-width:1180px;margin:0 auto;padding:clamp(26px,5vh,64px) clamp(18px,4vw,48px) 120px;min-height:100%}
+
+/* 抬头 */
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding-bottom:18px;border-bottom:1px solid rgba(244,239,228,.13)}
+.head .me{display:flex;align-items:center;gap:14px}
+.head .me img{width:clamp(38px,4.6vw,52px);height:auto}
+.head h1{font-family:var(--serif);font-weight:900;font-size:clamp(22px,3vw,32px);letter-spacing:.04em;line-height:1.2}
+.head h1 small{display:block;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.28em;color:var(--faint);margin-top:5px}
+.head .lede{max-width:46ch;font-size:clamp(13px,1.35vw,15px);line-height:1.85;color:#B9B1A0;font-weight:300}
+.head .lede b{color:var(--paper);font-weight:500}
+
+/* 书架 */
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,42px);
+  margin-top:clamp(34px,7vh,74px);perspective:1600px}
+@media(max-width:860px){.shelf{grid-template-columns:repeat(2,1fr);gap:26px}}
+@media(max-width:430px){.shelf{grid-template-columns:repeat(2,1fr);gap:18px}}
+.bk{position:relative;cursor:pointer;transform-style:preserve-3d;display:flex;flex-direction:column;justify-content:flex-start;
+  transition:transform .5s var(--ease);opacity:0;animation:rise .8s var(--ease) forwards}
+.bk:nth-child(1){animation-delay:.05s}.bk:nth-child(2){animation-delay:.16s}
+.bk:nth-child(3){animation-delay:.27s}.bk:nth-child(4){animation-delay:.38s}
+@keyframes rise{from{opacity:0;transform:translateY(26px) rotateX(8deg)}to{opacity:1;transform:none}}
+.bk:hover{transform:translateY(-14px) rotateY(-7deg) rotateX(2deg)}
+.bk:hover .cv{box-shadow:0 2px 3px rgba(0,0,0,.5),0 16px 26px -10px rgba(0,0,0,.55),0 44px 66px -22px rgba(0,0,0,.8)}
+.bk:hover .pages{transform:translateX(2px)}
+.bk:focus-visible{outline:2px solid var(--gold);outline-offset:8px;border-radius:4px}
+.cv{position:relative;aspect-ratio:41/58;border-radius:2px 6px 6px 2px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(0,0,0,.5),0 10px 18px -8px rgba(0,0,0,.5),0 32px 52px -20px rgba(0,0,0,.78);
+  display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,1.9vw,22px);
+  transition:box-shadow .5s var(--ease)}
+/* 布面织纹：两个方向的极细斜线交织 */
+.cv .weave{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.07) 0 1px,transparent 1px 3px)}
+.cv .grain{position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:var(--grain);background-size:110px;opacity:.09;mix-blend-mode:overlay}
+.cv>*{position:relative;z-index:1}
+/* 露在右侧的书页层 */
+.bk .pages{position:absolute;right:-4px;top:7px;bottom:7px;width:5px;border-radius:0 2px 2px 0;
+  background:repeating-linear-gradient(180deg,#D6CDB7 0 1.5px,#B3A98F 1.5px 3px);
+  box-shadow:1px 1px 5px rgba(0,0,0,.5);transition:transform .5s var(--ease);z-index:-1}
+/* 书脊高光 + 纸边 */
+.cv::before{content:'';position:absolute;left:0;top:0;bottom:0;width:17%;z-index:2;
+  background:linear-gradient(90deg,
+    rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 16%,rgba(255,255,255,.16) 46%,
+    rgba(255,255,255,.03) 62%,rgba(0,0,0,.1) 82%,rgba(0,0,0,.26) 100%);pointer-events:none}
+.cv::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:
+    linear-gradient(to left,rgba(255,255,255,.11) 0 1.5px,transparent 1.5px),
+    radial-gradient(130% 70% at 74% 6%,rgba(255,255,255,.17),transparent 56%),
+    linear-gradient(to top,rgba(0,0,0,.22),transparent 26%)}
+.cv .glyph{font-family:var(--serif);font-weight:900;font-size:clamp(52px,8.4vw,104px);line-height:.88;
+  align-self:flex-end;margin-top:auto;letter-spacing:-.02em;
+  /* 压印：先一层内凹的暗，再盖烫金 */
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.16)) drop-shadow(0 -1px 1px rgba(0,0,0,.5))}
+.cv .glyph.foil{background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cv .glyph.foil-s{background:var(--foil-s);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cv .nm{font-family:var(--serif);font-weight:700;font-size:clamp(12px,1.35vw,15px);letter-spacing:.16em;opacity:.95;
+  text-shadow:0 1px 0 rgba(0,0,0,.35)}
+.cv .n{font-family:var(--mono);font-size:clamp(11px,1.05vw,12px);letter-spacing:.2em;opacity:.62;margin-top:5px}
+.bk .line{margin-top:13px;font-size:clamp(11.5px,1.2vw,13px);color:#9A9182;line-height:1.6;min-height:3.2em}
+.c-people{background:linear-gradient(152deg,#2A5580,#16304C 68%);color:#F0E6CE}
+
+.c-works{background:linear-gradient(152deg,#C33A2C,#8E1F17 68%);color:#FBEEE6}
+.c-books{background:linear-gradient(152deg,#F2ECDC,#D7CCB3 68%);color:#2A251C}
+.c-books .glyph{color:#1E1A13;
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.55)) drop-shadow(0 -1px 1px rgba(0,0,0,.28))}
+.c-tools{background:linear-gradient(152deg,#3B5548,#22342C 68%);color:#E3EDE4}
+
+/* 桌上的纸片 */
+.papers{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(16px,2.6vw,30px);margin-top:clamp(34px,6vh,60px)}
+@media(max-width:760px){.papers{grid-template-columns:1fr}}
+.card{background:var(--paper);color:var(--ink);border-radius:2px;padding:clamp(20px,2.6vw,30px);
+  box-shadow:0 20px 40px -16px rgba(0,0,0,.6);position:relative;transform:rotate(-.5deg)}
+.card:nth-child(2){transform:rotate(.6deg);background:#F7F2DF}
+.card h3{font-family:var(--serif);font-weight:900;font-size:clamp(17px,2vw,21px);margin-bottom:12px}
+.card p{font-size:13.5px;line-height:1.95;color:var(--ink2)}
+.card p+p{margin-top:9px}
+.card p b{color:var(--ink);font-weight:500}
+.card .rows{margin-top:14px;padding-top:13px;border-top:1px dashed var(--rule);
+  display:flex;flex-wrap:wrap;gap:7px}
+.card .rows a{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:6px 11px;
+  border:1px solid var(--rule);border-radius:99px;color:var(--ink2);transition:.16s}
+.card .rows a:hover{border-color:var(--red);color:var(--red)}
+.card .stamp{position:absolute;right:clamp(18px,2.4vw,26px);top:clamp(18px,2.4vw,26px);
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:#B8AE97;
+  border:1px solid #DCD3BE;border-radius:3px;padding:4px 8px;transform:rotate(5deg)}
+/* 朱砂印：方框 + 爪子，压在纸的右下角 */
+.seal{position:absolute;right:clamp(20px,2.8vw,32px);bottom:clamp(18px,2.4vw,26px);
+  width:clamp(48px,5vw,60px);height:clamp(48px,5vw,60px);transform:rotate(-7deg);
+  border:2.5px solid var(--red);border-radius:5px;display:flex;align-items:center;justify-content:center;
+  opacity:.82;mix-blend-mode:multiply;pointer-events:none}
+.seal img{width:62%;height:auto;filter:grayscale(1) brightness(.25) sepia(1) hue-rotate(-24deg) saturate(7)}
+.seal::after{content:'';position:absolute;inset:-2.5px;border-radius:5px;
+  background-image:var(--grain);background-size:44px;opacity:.5;mix-blend-mode:screen}
+@media(max-width:760px){.seal{display:none}}
+.perma{margin-top:20px;padding-top:14px;border-top:1px dotted var(--rule);
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.perma a{font-size:13px;color:var(--red);border-bottom:1px solid rgba(168,40,31,.4)}
+.perma a:hover{border-color:var(--red)}
+.perma span{font-size:11.5px;color:var(--faint)}
+.perma .copy{font:inherit;font-size:12.5px;color:var(--ink2);background:none;border:1px solid var(--rule);
+  border-radius:3px;padding:4px 10px;cursor:pointer;transition:.14s}
+.perma .copy:hover{border-color:var(--ink2);color:var(--ink)}
+a.t{transition:.14s;border-bottom:1px solid transparent}
+a.t:hover{color:var(--red);border-color:var(--red)}
+.gosearch{align-self:center;font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;
+  color:#B9B1A0;border:1px solid rgba(244,239,228,.18);border-radius:99px;padding:8px 16px;transition:.18s}
+.gosearch:hover{color:var(--paper);border-color:rgba(244,239,228,.4);background:rgba(255,255,255,.06)}
+.foot{margin-top:clamp(30px,5vh,52px);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:#6E6758}
+.foot a:hover{color:var(--paper)}
+
+/* ===== 翻开的书 ===== */
+#reader{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;
+  padding:clamp(10px,2.4vh,34px);background:rgba(9,7,5,.8);backdrop-filter:blur(9px)}
+#reader.on{display:flex}
+.spread{width:min(1120px,100%);height:min(720px,100%);display:flex;position:relative;
+  border-radius:4px;
+  box-shadow:0 2px 4px rgba(0,0,0,.5),0 18px 30px -12px rgba(0,0,0,.55),
+             0 60px 120px -30px rgba(0,0,0,.85);
+  animation:open .55s var(--ease);transform-origin:left center}
+/* 书体下方露出的纸叠 */
+.spread::before{content:'';position:absolute;left:6px;right:6px;bottom:-5px;height:6px;z-index:-1;
+  border-radius:0 0 4px 4px;
+  background:repeating-linear-gradient(90deg,#DED5C0 0 2px,#C3B99F 2px 4px);
+  box-shadow:0 4px 10px rgba(0,0,0,.5)}
+@keyframes open{from{opacity:0;transform:perspective(2200px) rotateY(-26deg) scale(.94)}to{opacity:1;transform:none}}
+.pg{flex:1;min-width:0;color:var(--ink);overflow:auto;position:relative;
+  padding:clamp(22px,3.2vw,40px) clamp(20px,3vw,40px) 30px;
+  background-color:var(--paper);
+  background-image:repeating-linear-gradient(0deg,rgba(120,98,58,.018) 0 1px,transparent 1px 5px)}
+.pg::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:var(--grain);background-size:170px;opacity:.017;mix-blend-mode:multiply}
+.pg>*{position:relative;z-index:1}
+.pg.left{border-radius:4px 0 0 4px}
+.pg.left{box-shadow:inset -26px 0 30px -22px rgba(60,44,20,.55),inset -1px 0 0 rgba(120,96,56,.18)}
+.pg.right{border-radius:0 4px 4px 0;
+  box-shadow:inset 26px 0 30px -22px rgba(60,44,20,.55),inset 1px 0 0 rgba(120,96,56,.18)}
+.gut{width:3px;flex:none;position:relative;
+  background:linear-gradient(90deg,rgba(70,52,24,.5),rgba(30,22,10,.75),rgba(70,52,24,.5))}
+/* 装订线上的丝带书签 */
+.ribbon{position:absolute;top:-2px;left:50%;width:9px;height:clamp(70px,13vh,120px);
+  transform:translateX(-50%);background:linear-gradient(180deg,#9E2018,#74140E);
+  box-shadow:0 2px 6px rgba(0,0,0,.5);z-index:3;border-radius:0 0 1px 1px}
+.ribbon::after{content:'';position:absolute;left:0;right:0;bottom:-7px;height:8px;
+  background:linear-gradient(180deg,#8E1A12,#6E120C);
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 62%,0 100%)}
+.folio{display:block;margin-top:22px;padding-top:11px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--faint)}
+.pg.right .folio{text-align:right}
+#rx{position:fixed;top:16px;right:18px;z-index:62;width:40px;height:40px;border-radius:50%;
+  background:rgba(244,239,228,.14);color:var(--paper);font-size:19px;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);transition:.18s}
+#rx:hover{background:rgba(244,239,228,.28);transform:rotate(90deg)}
+
+/* 书名页（左） */
+.title-blk{height:100%;display:flex;flex-direction:column}
+.title-blk .big{font-family:var(--serif);font-weight:900;font-size:clamp(56px,8vw,96px);line-height:.94;letter-spacing:-.02em}
+.title-blk .sub{font-family:var(--serif);font-weight:700;font-size:clamp(15px,1.7vw,19px);letter-spacing:.2em;margin-top:14px;color:var(--ink2)}
+.title-blk .desc{margin-top:18px;font-size:13.5px;line-height:1.95;color:var(--ink2);max-width:34ch;font-weight:300}
+.title-blk .desc b{color:var(--ink);font-weight:500}
+.rule{height:1px;background:var(--rule);margin:20px 0}
+.vol{margin:auto 0;align-self:center;font-family:var(--serif);font-size:12px;letter-spacing:.34em;
+  color:#B5AB94;writing-mode:vertical-rl;text-orientation:upright;padding:16px 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+@media(max-width:760px){.vol{display:none}}
+.navlist{margin-top:auto;display:flex;flex-direction:column;gap:1px}
+.navlist button{display:flex;align-items:baseline;gap:9px;padding:9px 10px;border-radius:3px;font-size:13.5px;transition:.14s}
+.navlist button:hover{background:rgba(28,26,22,.06)}
+.navlist button.on{background:var(--ink);color:var(--paper)}
+.navlist button i{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--faint);width:22px;flex:none}
+.navlist button.on i{color:rgba(244,239,228,.6)}
+.navlist button span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navlist button em{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+.navlist button.on em{color:rgba(244,239,228,.6)}
+
+/* 内页通用 */
+.ph{font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;color:var(--faint);text-transform:uppercase;
+  padding-bottom:11px;border-bottom:1px solid var(--rule);margin-bottom:20px;display:flex;justify-content:space-between;gap:10px}
+h2.pt{font-family:var(--serif);font-weight:900;font-size:clamp(26px,3.4vw,36px);line-height:1.2;margin-bottom:6px}
+.pd{font-size:13.5px;line-height:1.95;color:var(--ink2)}
+.pd b{color:var(--ink);font-weight:500}
+.toc{margin-top:6px}
+.toc button{display:flex;align-items:center;gap:12px;width:100%;padding:9px 3px;
+  border-bottom:1px dotted var(--rule);transition:.14s}
+.toc button:hover{background:rgba(28,26,22,.05)}
+.toc .who{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.toc .t{font-family:var(--serif);font-weight:700;font-size:15.5px;line-height:1.25;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toc .t.s{color:var(--red)}
+.toc .bio{font-size:12px;line-height:1.45;color:var(--faint);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toc .meta{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap;flex:none}
+.grp{margin:22px 0 8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--red);text-transform:uppercase}
+.grp:first-child{margin-top:0}
+.search{width:100%;background:rgba(28,26,22,.05);border:1px solid var(--rule);border-radius:3px;
+  padding:9px 12px;font:inherit;font-size:13.5px;color:var(--ink);outline:0;margin-bottom:8px}
+.search:focus{border-color:var(--ink2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+.chip{font-size:12px;padding:5px 11px;border-radius:99px;border:1px solid var(--rule);color:var(--ink2);transition:.14s}
+.chip:hover{border-color:var(--ink2)}.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip i{font-style:normal;font-family:var(--mono);font-size:11px;opacity:.6;margin-left:4px}
+
+/* 人物内页 */
+.pmeta{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--red);margin-bottom:9px}
+.blurb{font-size:14px;line-height:2;color:var(--ink2);margin-top:14px;padding-left:14px;border-left:2px solid var(--rule)}
+.links{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.links a{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);border-radius:3px;transition:.14s}
+.links a:hover{border-color:var(--red);color:var(--red)}
+.links svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+.picks{margin-top:22px}
+.picks-h{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--ink);
+  padding-bottom:9px;border-bottom:1px solid var(--rule);margin-bottom:4px}
+.picks .pg-h{display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--red);
+  margin:18px 0 5px;text-transform:uppercase}
+.picks .pg-h em{font-style:normal;color:var(--faint)}
+.picks .nolink{flex:1;color:var(--ink2)}
+.picks .pg-h em{font-style:normal}
+.picks-h em{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--faint);
+  float:right;letter-spacing:.1em;margin-top:5px}
+.dl li,.rl li{list-style:none;display:flex;align-items:baseline;gap:10px;padding:8px 0;
+  border-bottom:1px dotted var(--rule);font-size:13.5px;line-height:1.6}
+.dl li a,.rl li a{flex:1;min-width:0;color:var(--ink);border-bottom:1px solid transparent;transition:.14s}
+.dl li a:hover,.rl li a:hover{color:var(--red);border-color:rgba(168,40,31,.45)}
+.dl li .dt,.rl li .dt{font-family:var(--mono);font-size:11px;color:var(--faint);flex:none}
+.rl li a{color:var(--ink2)}
+.tiny{margin-top:9px;font-size:11.5px;line-height:1.7;color:var(--faint)}
+.tiny code{font-family:var(--mono);font-size:11px;background:rgba(28,26,22,.06);padding:2px 5px;border-radius:2px}
+.picks li{list-style:none;padding:7px 0;border-bottom:1px dotted var(--rule);font-size:13.5px;line-height:1.6;display:flex;gap:8px;align-items:baseline}
+.picks li .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--paper);background:var(--ink2);padding:2px 6px;border-radius:2px;flex:none;text-transform:uppercase}
+.picks li a{flex:1;border-bottom:1px solid transparent}.picks li a:hover{color:var(--red);border-color:var(--red)}
+.picks li .n{font-family:var(--mono);font-size:10.5px;color:var(--faint);flex:none}
+.empty{margin-top:20px;padding:18px 20px;border:1px dashed var(--rule);border-radius:3px;
+  font-size:13px;line-height:1.9;color:var(--faint)}
+.empty b{color:var(--ink2);font-weight:500}
+.empty .how{margin-top:10px;padding-top:10px;border-top:1px dotted var(--rule);font-size:12px;line-height:1.8}
+.empty code{font-family:var(--mono);font-size:11px;background:rgba(28,26,22,.06);
+  padding:2px 5px;border-radius:2px;color:var(--ink2)}
+.kv{display:flex;gap:26px;margin-top:20px;padding-top:16px;border-top:1px solid var(--rule)}
+.kv b{display:block;font-family:var(--mono);font-size:24px;font-weight:700;color:var(--ink)}
+.kv span{font-size:11.5px;color:var(--faint)}
+
+/* 造物内页 */
+.prod{padding:14px 0;border-bottom:1px solid var(--rule)}
+.prod .r{display:flex;align-items:baseline;gap:9px}
+.prod .t{font-family:var(--serif);font-weight:900;font-size:18px;white-space:nowrap}
+.prod .d{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-4px);min-width:10px}
+.prod .st{font-family:var(--mono);font-size:11px;color:var(--red);white-space:nowrap}
+.prod p{font-size:13px;line-height:1.75;color:var(--ink2);margin-top:5px}
+.prod .tech{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:5px}
+.prod .tech a{color:var(--red);border-bottom:1px solid rgba(168,40,31,.4)}
+.art{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px dotted var(--rule)}
+.art .t{flex:1;font-size:13.5px;line-height:1.55;color:var(--ink)}
+.art .n{font-size:11.5px;color:var(--faint);white-space:nowrap;max-width:34%;overflow:hidden;text-overflow:ellipsis}
+.art .dt{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+@media(max-width:760px){.art .n{display:none}}
+.mi{padding:11px 0;border-bottom:1px dotted var(--rule)}
+.mi .r{display:flex;align-items:baseline;gap:9px}
+.mi .t{font-family:var(--serif);font-weight:700;font-size:16px;white-space:nowrap}
+.mi .d{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-4px);min-width:10px}
+.mi .s{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.mi p{font-size:12.5px;line-height:1.7;color:var(--ink2);margin-top:4px}
+.oss{margin-top:18px;padding:15px 17px;border:1px solid var(--rule);background:rgba(28,26,22,.035)}
+.oss b{font-family:var(--serif);font-size:16px;font-weight:700}
+.oss p{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 16px;background:var(--red);
+  color:#fff;font-size:13px;font-weight:500;border-radius:3px;transition:.18s}
+.btn:hover{background:#C23124}
+.btn.g{background:transparent;border:1px solid var(--rule);color:var(--ink2)}
+.btn.g:hover{border-color:var(--ink2);color:var(--ink)}
+
+/* 书房内页 */
+.pk{padding:16px 0;border-bottom:1px solid var(--rule)}
+.pk .c{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--faint)}
+.pk b{display:block;font-family:var(--serif);font-size:19px;font-weight:900;margin:5px 0 2px}
+.pk .a{font-size:12px;color:var(--faint)}
+.pk q{quotes:none;display:block;font-size:13px;line-height:1.9;color:var(--ink2);
+  border-left:2px solid var(--red);padding-left:11px;margin-top:9px}
+.bl{margin-top:4px}
+.bl li{list-style:none;display:flex;align-items:baseline;gap:9px;padding:7px 2px;
+  border-bottom:1px dotted var(--rule);font-size:13.5px;line-height:1.6}
+.bl li i{font-style:normal;color:var(--gold);font-family:var(--mono);font-size:11px;
+  flex:none;width:12px;text-align:center}
+.bl li i.o{color:transparent}
+.bl li a{flex:1;min-width:0;color:var(--ink);border-bottom:1px solid transparent;transition:.14s}
+.bl li a:hover{color:var(--red);border-color:rgba(168,40,31,.45)}
+.bl li span{font-size:12px;color:var(--faint);white-space:nowrap;max-width:34%;
+  overflow:hidden;text-overflow:ellipsis;flex:none}
+.pk b a{color:inherit;border-bottom:1px solid rgba(28,26,22,.18)}
+.pk b a:hover{color:var(--red);border-color:var(--red)}
+.dbl{color:var(--faint);border-bottom:1px solid rgba(140,132,116,.4)}
+.dbl:hover{color:var(--red);border-color:var(--red)}
+@media(max-width:760px){.bl li span{display:none}}
+
+/* 器具内页 */
+.tl{padding:11px 0;border-bottom:1px dotted var(--rule);display:flex;gap:12px;align-items:baseline}
+.tl b{font-weight:500;font-size:14px;min-width:96px;flex:none}
+.tl span{font-size:12.5px;line-height:1.65;color:var(--ink2)}
+.kit{padding:11px 0;border-bottom:1px dotted var(--rule)}
+.kit .n{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--ink);
+  border-bottom:1px solid transparent;transition:.14s}
+a.kit .n:hover,.kit a.n:hover{color:var(--red);border-color:var(--red)}
+.kit p{font-size:12.8px;line-height:1.7;color:var(--ink2);margin-top:4px}
+.dsite{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.dsite .shot{flex:none;width:190px;border:1px solid var(--rule);overflow:hidden;background:#111;border-radius:2px}
+.dsite .shot img{width:100%;height:auto;display:block;transition:transform .6s var(--ease)}
+.dsite .shot:hover img{transform:scale(1.05)}
+.dsite .dmeta{flex:1;min-width:0}
+.dsite .r{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dsite .t{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--ink);
+  border-bottom:1px solid transparent;transition:.14s}
+.dsite .t:hover{color:var(--red);border-color:var(--red)}
+.dsite .sw{display:inline-flex;gap:0;border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.dsite .sw i{width:19px;height:15px;display:block}
+.dsite p{font-size:13px;line-height:1.8;color:var(--ink2);margin-top:6px}
+.dsite .hex{font-family:var(--mono);font-size:10.8px;color:var(--faint);margin-top:6px;letter-spacing:.02em}
+.dgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:6px}
+.dcard{border:1px solid var(--rule);border-radius:2px;overflow:hidden;display:flex;flex-direction:column;
+  background:rgba(28,26,22,.02);transition:.16s}
+.dcard:hover{border-color:var(--ink2);background:rgba(28,26,22,.05)}
+.dcard img{width:100%;height:96px;object-fit:cover;object-position:top;display:block}
+.dcard .nopic{height:0}
+.dcard b{font-family:var(--serif);font-weight:700;font-size:15px;padding:10px 12px 3px}
+.dcard span{font-size:12px;line-height:1.65;color:var(--ink2);padding:0 12px 12px}
+.rules{margin-top:4px}
+.rules li{list-style:none;font-size:13.5px;line-height:1.75;color:var(--ink2);
+  padding:7px 0 7px 20px;border-bottom:1px dotted var(--rule);position:relative}
+.rules li::before{content:'';position:absolute;left:3px;top:15px;width:5px;height:5px;
+  background:var(--red);transform:rotate(45deg)}
+@media(max-width:760px){.dsite{flex-direction:column}.dsite .shot{width:100%}.dgrid{grid-template-columns:1fr}}
+/* 四套主题 · 每张卡用它自己的色值画预览 */
+.kits{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+.kit{border:1px solid var(--rule);border-radius:2px;overflow:hidden;background:rgba(28,26,22,.02)}
+.kit-pv{padding:15px 16px 16px}
+.kit-pv .h{font-family:var(--serif);font-weight:700;font-size:15px;line-height:1.3;margin-bottom:5px}
+.kit-pv .p{font-size:11.5px;line-height:1.6;margin-bottom:11px}
+.kit-pv .b{display:inline-block;font-size:11.5px;font-weight:500;padding:7px 14px}
+.kit-m{padding:11px 14px 13px;border-top:1px solid var(--rule)}
+.kit-m .r{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.kit-m .en{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+.kit-m .cn{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--ink)}
+.kit-m .use{font-size:11.5px;line-height:1.7;color:var(--ink2);margin-top:5px}
+.kit-m .note{font-size:11px;line-height:1.7;color:var(--faint);margin-top:4px}
+.kit-m .hx{font-family:var(--mono);font-size:9.8px;color:var(--faint);margin-top:7px;
+  display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.kit-m .hx i{width:11px;height:11px;border-radius:1px;display:inline-block;
+  border:1px solid rgba(28,26,22,.18);vertical-align:-1px;margin-right:3px}
+@media(max-width:760px){.kits{grid-template-columns:1fr}}
+
+/* 一套刻度 */
+.scale{margin-top:4px;border-top:1px solid var(--rule)}
+.scale .row{display:flex;gap:14px;padding:8px 0;border-bottom:1px dotted var(--rule);font-size:13px;line-height:1.7}
+.scale .k{flex:none;width:44px;font-family:var(--mono);font-size:11px;color:var(--red);
+  letter-spacing:.08em;padding-top:2px}
+.scale .v{color:var(--ink2)}
+.snote{font-size:12px;line-height:1.8;color:var(--faint);margin-top:9px;padding-left:12px;
+  border-left:2px solid var(--rule)}
+
+/* 七条禁令 · 可整段复制进提示词 */
+.bans{margin-top:4px;counter-reset:ban}
+.bans li{list-style:none;counter-increment:ban;position:relative;padding:7px 0 7px 30px;
+  font-size:13.5px;line-height:1.75;color:var(--ink2);border-bottom:1px dotted var(--rule)}
+.bans li::before{content:counter(ban,decimal-leading-zero);position:absolute;left:0;top:8px;
+  font-family:var(--mono);font-size:10px;color:var(--red);letter-spacing:.04em}
+.bancopy{margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bancopy button{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink2);
+  background:rgba(28,26,22,.04);border:1px solid var(--rule);border-radius:2px;
+  padding:6px 13px;cursor:pointer;transition:.16s}
+.bancopy button:hover{border-color:var(--ink2);color:var(--ink)}
+.bancopy span{font-size:11.5px;color:var(--faint)}
+.srcgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:6px 0 4px}
+@media(max-width:760px){.srcgrid{grid-template-columns:1fr}}
+.srccard{display:block;border:1px solid var(--rule);border-radius:3px;padding:11px 13px;transition:.16s;
+  background:rgba(28,26,22,.02)}
+.srccard:hover{border-color:var(--red);background:rgba(28,26,22,.05)}
+.srccard b{display:block;font-family:var(--serif);font-weight:700;font-size:14.5px}
+.srccard span{display:block;font-size:12px;line-height:1.6;color:var(--ink2);margin-top:3px}
+.srccard i{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:4px}
+.src{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.src span{font-size:11.5px;padding:4px 9px;border:1px solid var(--rule);border-radius:99px;color:var(--ink2)}
+
+/* 灯箱 */
+#lb{position:fixed;inset:0;z-index:80;background:rgba(6,5,4,.94);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+#lb.on{display:flex}#lb img{max-height:100%;max-width:100%;box-shadow:0 40px 120px rgba(0,0,0,.85)}
+
+/* 手机：单页 */
+@media(max-width:760px){
+  .spread{height:100%;flex-direction:column;border-radius:2px}
+  .gut{display:none}
+  .pg.left{border-radius:2px 2px 0 0;flex:none;max-height:38vh;box-shadow:none;
+    border-bottom:1px solid var(--rule);background:var(--paper2)}
+  .pg.right{border-radius:0 0 2px 2px;box-shadow:none}
+  .title-blk .big{font-size:44px}
+  .navlist{margin-top:14px;flex-direction:row;flex-wrap:wrap;gap:5px}
+  .navlist button{padding:7px 11px;border:1px solid var(--rule);border-radius:99px;font-size:12.5px}
+  .navlist button em,.navlist button i{display:none}
+  .gal{grid-template-columns:1fr}
+  .title-blk .desc{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<main id="desk"><div class="inner">
+  <header class="head">
+    <div class="me">
+      <img src="../brand/logo.svg" alt="">
+      <h1>邦顺<small>人 · 物 · 书 · 器</small></h1>
+    </div>
+    <a class="gosearch" href="../index.html">← 回主页</a>
+    <p class="lede">邦顺的生命算法体系：用公理化思维拆解先天结构，八字为核心解码工具，通过自在班、结构报告，帮你把先天结构变成可操作的人生算法。摊在这儿四本，随手翻。</p>
+  </header>
+
+  <section class="shelf" id="shelf"></section>
+
+  <section class="papers" id="papers"></section>
+
+  <footer class="foot">
+    <span>邦顺 · bangshun2025.github.io</span>
+    <span>构建于 2026-10-04 · 改 library/data.json 后重新部署即更新</span>
+  </footer>
+</div></main>
+
+<div id="reader"><button id="rx" title="合上（Esc）">×</button><div class="spread" id="spread"></div></div>
+<div id="lb"><img alt=""></div>
+
+<script id="data" type="application/json">{"_说明":"邦顺的书桌作品集：只放真实已发布的内容。改完重新部署即更新（本地预览：bin/rails library:build）。","folio":"BANGSHUN'S LIBRARY","buckets":["排盘","教材","教学"],"papers":[{"stamp":"ABOUT","title":"关于邦顺","paras":["生命算法体系创始人。用公理化思维拆解先天结构，八字为解码工具。","自在班与结构报告落地。<b>边做边发，发布优先。<\/b>"],"links":[{"t":"主页 ↗","url":"/"},{"t":"关于 ↗","url":"/about"}],"seal":true},{"stamp":"SYSTEM","title":"生命算法体系","paras":["结构 → 解码 → 算法：三步，把先天结构变成可操作的人生算法。","这一桌放的都是<b>已发布的作品<\/b>：排盘工具、教材、教学记录，点桌面上的产品卡直达线上版。"],"links":[{"t":"GitHub ↗","url":"https://github.com/bangshun2025"}]}],"people":[],"products":[{"slug":"bazi-paipan","name":"八字排盘 · 运行","line":"生命算法排盘工具，公理化拆解的解码端。","status":"在用","url":"https://bangshun2025.github.io/bazi-paipan/","tech":"单文件 HTML"},{"slug":"ziwei-paipan","name":"紫微斗数排盘 · 运行","line":"公历转农历 + 真太阳时 + 十二宫安星引擎。","status":"在用","url":"https://bangshun2025.github.io/ziwei-paipan/","tech":"单文件 HTML"},{"slug":"soybean-textbook","name":"大豆教材","line":"13 篇手机阅读页，Notion 交互库同步。","status":"已发布","url":"https://bangshun2025.github.io/soybean-textbook/","tech":"GitHub Pages"},{"slug":"zizai-class-2026","name":"自在班 2026","line":"每日成长记录页系列，教学现场的公开存档。","status":"连载中","url":"https://bangshun2025.github.io/zizai-class-2026/","tech":"GitHub Pages"}],"skills":[{"group":"方法","items":[{"slug":"gonglianhua","title":"公理化拆解","line":"把复杂现象拆到底层结构，不定性、不下断语。","desc":""},{"slug":"bazi-decode","title":"八字解码","line":"以八字为工具，读出价值观、规则与方法论的先天结构。","desc":""}]}],"open_source":[],"articles":[],"article_total":0,"article_all":0,"book_picks":[],"book_groups":[],"tools":[],"tools_note":"撤掉就卡住的工具，一行一个。","kit":[],"kit_total":0,"sources_full":[],"source_total":0,"design":{"studied":[],"browse":[],"rules":[],"kits":[],"scale":[],"scale_note":"","bans":[],"bans_note":"","source":{"t":"","url":""}},"logo":"../brand/logo.svg","stats":{"people":0,"docs":0,"curated":0,"picks":0,"intel":0,"skills":2,"books":0,"products":4,"articles":0}}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const S=D.stats, mob=()=>innerWidth<=760;
+
+/* ========== 书架 ========== */
+const skillN=D.skills.reduce((s,g)=>s+g.items.length,0);
+const BOOKS=[
+  {id:'people',cls:'c-people',foil:'foil',glyph:'人',nm:'一流人物',n:S.people+' 位',line:'我盯着的人，和他们值得看的东西'},
+  {id:'works', cls:'c-works', foil:'foil',glyph:'物',nm:'造物记',  n:D.products.length+' 品 · '+skillN+' 技 · '+D.article_total+' 文',line:'做出来的产品、写下的技能、发出去的文章'},
+  {id:'books', cls:'c-books', glyph:'书',nm:'书房',    n:S.books+' 本',line:'读过的、在读的、改过我判断的'},
+  {id:'tools', cls:'c-tools', foil:'foil-s',glyph:'器',nm:'器具与信源',n:D.source_total+' 源',line:'撤掉就卡住的工具，每周必看的源'},
+];
+$('#shelf').innerHTML=BOOKS.map(b=>`
+  <button class="bk" data-b="${b.id}" aria-label="翻开《${b.nm}》">
+    <div class="cv ${b.cls}"><span class="weave"></span><span class="grain"></span>
+      <div><div class="nm">${b.nm}</div><div class="n">${b.n}</div></div>
+      <div class="glyph ${b.foil||''}">${b.glyph}</div></div>
+    <span class="pages"></span>
+    <div class="line">${b.line}</div>
+  </button>`).join('');
+$$('.bk').forEach(b=>b.onclick=()=>openBook(b.dataset.b));
+
+/* ========== 桌上的纸：内容来自 data.json 的 papers ========== */
+$('#papers').innerHTML=(D.papers||[]).map(c=>`<article class="card">
+  ${c.stamp?`<span class="stamp">${esc(c.stamp)}</span>`:''}
+  <h3>${esc(c.title)}</h3>
+  ${(c.paras||[]).map(x=>`<p>${x}</p>`).join('')}
+  ${(c.links||[]).length?`<div class="rows">${c.links.map(l=>`<a href="${esc(l.url)}"${/^https?:/.test(l.url)?' target="_blank" rel="noopener"':''}>${esc(l.t)}</a>`).join('')}</div>`:''}
+  ${c.seal?`<span class="seal"><img src="${esc(D.logo)}" alt=""></span>`:''}
+</article>`).join('');
+
+/* ========== 阅读器 ========== */
+let cur=null;
+function resetBook(id){if(id==='people')ST.people={view:'toc',id:null,q:'',b:'全部'};else ST[id].view=0;}
+function setHash(v){try{history.replaceState(null,'',v?('#/'+v):location.pathname);}catch(e){}}
+function openBook(id,jump){cur=id;if(jump===undefined||jump===null)resetBook(id);$('#reader').classList.add('on');render(jump);document.body.style.overflow='hidden';if(!jump)setHash(id);}
+function closeBook(){$('#reader').classList.remove('on');cur=null;setHash('');}
+$('#rx').onclick=closeBook;
+$('#reader').onclick=e=>{if(e.target.id==='reader')closeBook();};
+/* 七条禁令一键复制 —— 这块是动态渲染的，走事件委托 */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('#cpban'); if(!b) return;
+  const txt=D.design.bans.map((x,i)=>String(i+1).padStart(2,'0')+'. '+x).join('\n');
+  const done=()=>{b.textContent='已复制';setTimeout(()=>b.textContent='复制这七条',1600);};
+  const fb=()=>{const t=document.createElement('textarea');t.value=txt;t.style.cssText='position:fixed;opacity:0';
+    document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(_){b.textContent='请手动选中复制';}
+    document.body.removeChild(t);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(fb);}else{fb();}
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ if($('#lb').classList.contains('on'))$('#lb').classList.remove('on'); else closeBook(); }
+});
+const ICO={x:'<svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg>',
+  youtube:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9l5 3-5 3z"/></svg>',
+  site:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>'};
+const LKN={x:'X',youtube:'YouTube',site:'官网 / 博客',github:'GitHub',substack:'Substack',podcast:'播客',wechat:'公众号'};
+const KN={book:'书',talk:'访谈',essay:'文章',video:'视频',course:'课程',podcast:'播客',paper:'论文'};
+/* 书名 → 搜索入口。Z-Library 官方入口域名会自动跳可用镜像 */
+const zlib=t=>'https://z-lib.io/s/'+encodeURIComponent(String(t).replace(/[《》]/g,'').trim());
+const douban=t=>'https://search.douban.com/book/subject_search?search_text='+encodeURIComponent(String(t).replace(/[《》]/g,'').trim());
+
+/* 每本书：左页固定（书名 + 导航），右页跟着 state 变 */
+const ST={people:{view:'toc',id:null,q:'',b:'全部'},works:{view:0},books:{view:0},tools:{view:0}};
+
+function render(jump){
+  if(jump!==undefined&&jump!==null){ if(cur==='people')ST.people={...ST.people,view:'person',id:jump}; else ST[cur].view=jump; }
+  const B=BOOKS.find(b=>b.id===cur);
+  const L=leftPage(B), R=rightPage();
+  $('#spread').innerHTML=`<div class="pg left">${L}</div><div class="gut"><span class="ribbon"></span></div><div class="pg right">${R}</div>`;
+  bind();
+  const r=$('.pg.right'); if(r) r.scrollTop=0;
+}
+function leftPage(B){
+  const navs=NAV[cur]();
+  return `<div class="title-blk">
+    <div>
+      <div class="big">${B.glyph}</div>
+      <div class="sub">${B.nm}</div>
+      <div class="desc">${DESC[cur]}</div>
+    </div>
+    <div class="vol">第${["一","二","三","四"][BOOKS.findIndex(x=>x.id===cur)]||""}册</div>
+    <div class="rule"></div>
+    <nav class="navlist">${navs.map((n,i)=>`<button data-nav="${n.k}" class="${n.on?'on':''}"><i>${String(i+1).padStart(2,'0')}</i><span>${esc(n.t)}</span><em>${n.n||''}</em></button>`).join('')}</nav>
+    <span class="folio">${esc(D.folio||'')} · ${B.nm}</span></div>`;
+}
+const DESC={
+  people:'我长期盯着的一流人物。<b>名单是公开的，我的提炼不是。</b>每个人下面，慢慢会挂上值得看的书、访谈和文章。',
+  works:'做出来的<b>产品</b>，写给 AI 的<b>技能</b>，发出去的<b>文章</b>。<br>技能就是一份说明书：告诉 agent 这类活怎么干，它读完就会。',
+  books:'读过的与在读的。<b>精选的几本写了它改了我什么</b>，其余按分类列出，★ 是我打的五星。',
+  tools:'分两层：<b>撤掉就卡住的</b>，和<b>看到了先收着的</b>。<br>再加每周必看的对话源，和一批值得拆开看的一流网站。'};
+const NAV={
+  people(){const s=ST.people;return[{k:'toc',t:'名单',n:S.people,on:s.view==='toc'},
+    ...(s.view==='person'?[{k:'cur',t:(D.people.find(p=>p.id==s.id)||{}).name||'',on:true}]:[])]},
+  works(){const v=ST.works.view;return[{k:0,t:'产品',n:D.products.length,on:v===0},{k:1,t:'技能',n:skillN,on:v===1},{k:2,t:'文章',n:D.article_total,on:v===2},{k:3,t:'已开源',n:D.open_source.length,on:v===3}]},
+  books(){const v=ST.books.view;return[{k:0,t:'改过我判断的',n:D.book_picks.length,on:v===0},{k:1,t:'全部书目',n:S.books,on:v===1}]},
+  tools(){const v=ST.tools.view;return[
+    {k:0,t:'在用的工具',n:D.tools.reduce((s,g)=>s+g.items.length,0),on:v===0},
+    {k:1,t:'收集的工具',n:D.kit_total,on:v===1},
+    {k:2,t:'每周必看的源',n:D.source_total,on:v===2},
+    {k:3,t:'前端设计审美',n:D.design.studied.length+D.design.browse.length,on:v===3}]}};
+
+function rightPage(){return ({people:pgPeople,works:pgWorks,books:pgBooks,tools:pgTools})[cur]();}
+
+/* ---- 人 ---- */
+function pgPeople(){
+  const s=ST.people;
+  if(s.view==='person'){
+    const p=D.people.find(x=>x.id==s.id); if(!p)return '';
+    const links=[...p.links]; if(p.x&&/^@/.test(p.x)&&!links.some(l=>l.k==='x'))links.unshift({k:'x',url:'https://x.com/'+p.x.replace('@','')});
+    const nPick=p.picks.reduce((n,g)=>n+g.items.length,0);
+    const picks=p.picks.map(g=>`<div class="pg-h"><span>${esc(g.name)}</span><em>${g.items.length}</em></div>
+      <ul>${g.items.map(i=>`<li><span class="k">${KN[g.kind]||'资料'}</span>${i.url?`<a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.t)}</a>`:`<span class="nolink">${esc(i.t)}</span>`}${i.note?`<span class="n">${esc(i.note)}</span>`:''}</li>`).join('')}</ul>`).join('');
+    return `<div class="ph"><span>${esc(p.bucket)} · ${esc(p.tag)}</span><span>${p.tier?p.tier+' 级':''}</span></div>
+      <button class="chip" data-nav="toc" style="margin-bottom:14px">← 回名单</button>
+      <h2 class="pt">${esc(p.name)}</h2>
+      <div class="pmeta">${esc(p.en||'')}${p.x?' · '+esc(p.x):''}</div>
+      <p class="pd">${esc(p.title)||'客观简介待补。'}</p>
+      ${p.blurb?`<div class="blurb">${esc(p.blurb)}</div>`:''}
+      ${links.length?`<div class="links">${links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${ICO[l.k]||ICO.site}${LKN[l.k]||'链接'}</a>`).join('')}</div>`:''}
+      ${picks?`<div class="picks"><div class="picks-h">值得看的 · ${nPick} 条</div>${picks}</div>`:''}
+
+      ${p.docs.length?`<div class="picks">
+        <div class="picks-h">我收的材料 · ${p.docs.length} 篇</div>
+        <ul class="dl">${p.docs.map(d=>`<li>${d.url?`<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.t)}</a>`:`<span class="nolink">${esc(d.t)}</span>`}<span class="dt">${esc(d.d)}</span></li>`).join('')}</ul>
+        <p class="tiny">只列标题与原文链接。正文和我的批注留在自己的系统里。</p></div>`:''}
+
+      ${p.recent.length?`<div class="picks">
+        <div class="picks-h">他最近在说 <em>共 ${p.n_intel} 条</em></div>
+        <ul class="rl">${p.recent.map(r=>`<li><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.t)}</a><span class="dt">${esc(r.d)}</span></li>`).join('')}</ul></div>`:''}
+
+      ${(!picks&&!p.docs.length&&!p.recent.length)?`<div class="empty">这个人我刚建档，还没往里放东西。
+            <div class="how">在 <code>library/data.json</code> 里给 <code>${esc(p.slug||'这个人')}</code> 的 <code>picks</code> 加几条，重新生成即可。</div></div>`:''}
+      ${(!picks&&(p.docs.length||p.recent.length))?`<p class="tiny" style="margin-top:16px">
+            想让这一页更全？在 <code>library/data.json</code> 的 <code>picks</code> 里加访谈、播客、文章，会显示在最上面。</p>`:''}
+      <div class="perma">
+        <a href="#/p/${esc(p.url||p.slug)}">这一页的网址 ↗</a>
+        <button class="copy" data-copy="/library/#/p/${esc(p.url||p.slug)}">复制链接</button>
+        <span>发给别人，他点开就能看</span></div>
+      <div class="kv"><div><b>${p.n_docs}</b><span>篇研读材料</span></div><div><b>${p.n_intel}</b><span>条情报追踪</span></div><div><b>${p.picks.reduce((n,g)=>n+g.items.length,0)}</b><span>条公开推荐</span></div></div>
+      <span class="folio">${esc(p.name)}</span>`;
+  }
+  const B=['全部',...D.buckets.filter(b=>D.people.some(p=>p.bucket===b))];
+  const list=D.people.filter(p=>(s.b==='全部'||p.bucket===s.b)&&(!s.q||(p.name+p.en+p.title+p.tag+(p.kw||'')+(p.blurb||'')).toLowerCase().includes(s.q.toLowerCase())));
+  const groups={}; list.forEach(p=>(groups[p.bucket]=groups[p.bucket]||[]).push(p));
+  const cut=(s,n)=>{s=(s||'').trim();return s.length>n?s.slice(0,n)+'…':s;};
+  const body=Object.keys(groups).map(k=>`<div class="grp">${esc(k)}</div>`+groups[k].map(p=>`
+    <button class="tocrow" data-pid="${p.id}">
+      <span class="who">
+        <span class="t ${p.tier==='S'?'s':''}">${esc(p.name)}</span>
+        <span class="bio">${esc(cut(p.title||p.blurb||p.tag,30))}</span>
+      </span>
+      <span class="meta">${p.picks.length?'★ '+p.picks.reduce((n,g)=>n+g.items.length,0)+' 荐':(p.n_docs?p.n_docs+' 篇':'—')}</span>
+    </button>`).join('')).join('');
+  return `<div class="ph"><span>目录 · 一流人物</span><span>${list.length} / ${S.people}</span></div>
+    <input class="search" id="pq" placeholder="搜人名、领域、头衔…" value="${esc(s.q)}">
+    <div class="chips">${B.map(b=>`<button class="chip ${b===s.b?'on':''}" data-pb="${b}">${b}<i>${b==='全部'?D.people.length:D.people.filter(p=>p.bucket===b).length}</i></button>`).join('')}</div>
+    <div class="toc">${body||'<p class="pd" style="padding:18px 0">没找到。换个词。</p>'}</div>
+    <span class="folio">${S.curated?`已整理 ${S.curated} 人 · ${S.picks} 条推荐`:'推荐整理中'}</span>`;
+}
+/* ---- 物 ---- */
+function pgWorks(){
+  const v=ST.works.view;
+  /* 产品 */
+  if(v===0)return `<div class="ph"><span>产品</span><span>${D.products.length} 个</span></div>
+    <h2 class="pt">做出来的东西</h2><p class="pd">能打开的、天天在用的。</p>
+    ${D.products.map(p=>`<div class="prod">
+      <div class="r">${p.url?`<a class="t" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a>`:`<span class="t">${esc(p.name)}</span>`}<span class="d"></span><span class="st">${esc(p.status)}</span></div>
+      <p>${esc(p.line)}</p>
+      <div class="tech">${esc(p.tech)}${p.url?` · <a href="${esc(p.url)}" target="_blank" rel="noopener">打开 ↗</a>`:''}</div>
+    </div>`).join('')}
+    <span class="folio">造物记 · 产品</span>`;
+  /* 技能 */
+  if(v===1)return `<div class="ph"><span>技能 · 写给 AI 的说明书</span><span>${skillN} 个</span></div>
+    <h2 class="pt">一句话进去，成品出来</h2>
+    <p class="pd">每一个都是写给 AI 的说明书：告诉它这类活怎么干，它读完就会。</p>
+    ${D.skills.map(g=>`<div class="grp">${esc(g.group)} · ${g.items.length}</div>`+g.items.map(i=>`<div class="mi"><div class="r"><span class="t">${esc(i.title)}</span><span class="d"></span><span class="s">${esc(i.slug)}</span></div>${i.line?`<p>${esc(i.line)}</p>`:''}</div>`).join('')).join('')}
+    <span class="folio">造物记 · 技能</span>`;
+  /* 文章 */
+  if(v===2)return `<div class="ph"><span>文章 · 精选</span><span>${D.article_total} / 发表过 ${D.article_all}</span></div>
+    <h2 class="pt">写下来的</h2><p class="pd">只列发表过的。</p>
+    ${D.articles.map(g=>`<div class="grp">${esc(g.group)} · ${g.n}</div>`+g.items.map(a=>`<div class="art"><span class="t">${esc(a.t)}</span>${a.note?`<span class="n">${esc(a.note)}</span>`:''}<span class="dt">${esc((a.d||'').slice(0,7))}</span></div>`).join('')).join('')}
+    <span class="folio">造物记 · 文章</span>`;
+  /* 开源 */
+  const o=D.open_source[0];
+  if(!o)return `<div class="ph"><span>已开源</span><span>0</span></div><h2 class="pt">还没有开源的</h2><p class="pd">开源了一个项目，就在 data.json 的 open_source 里加一条。</p><span class="folio">造物记 · 开源</span>`;
+  return `<div class="ph"><span>已开源</span><span>${D.open_source.length}</span></div>
+    <h2 class="pt">送出去的那一个</h2>
+    <div class="oss"><b>${esc(o.name)}</b><p>${esc(o.note)}</p>
+      <p style="font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:6px">${esc(o.license)} · ${esc(o.repo)}</p>
+      <a class="btn g" href="${esc(o.url)}" target="_blank" rel="noopener">去 GitHub ↗</a></div>
+    <span class="folio">造物记 · 开源</span>`;
+}
+
+/* ---- 书 ---- */
+function pgBooks(){
+  if(ST.books.view===1)return `<div class="ph"><span>全部书目</span><span>${S.books} 本 · ${D.book_groups.length} 类</span></div>
+    <p class="pd" style="margin-bottom:14px">书名可以点，直接跳到豆瓣搜这本书。★ 是我打的五星。</p>
+    ${D.book_groups.map(g=>`<div class="grp">${esc(g.cat)} · ${g.n}</div><ul class="bl">${g.books.map(b=>`<li>${b.star>=5?'<i>★</i>':'<i class="o"></i>'}<a href="${douban(b.title)}" target="_blank" rel="noopener">${esc(b.title)}</a>${b.author?`<span>${esc(b.author)}</span>`:''}</li>`).join('')}</ul>`).join('')}
+    <span class="folio">书房 · 全部</span>`;
+  return `<div class="ph"><span>改过我判断的</span><span>${D.book_picks.length} 本</span></div>
+    <h2 class="pt">这几本，我写了它改了我什么</h2><p class="pd">原句，没润色。</p>
+    ${D.book_picks.map(b=>`<div class="pk"><span class="c">${esc(b.cat||'精选')}</span>
+      <b><a href="${douban(b.name)}" target="_blank" rel="noopener">${esc(b.name)}</a></b>
+      <span class="a">${esc(b.author)}</span>
+      <q>${esc(b.why)}</q></div>`).join('')}
+    <span class="folio">书房 · 精选</span>`;
+}
+/* ---- 器 ---- */
+function pgTools(){
+  if(ST.tools.view===3){const G=D.design;
+    return `<div class="ph"><span>前端设计审美</span><span>${G.studied.length} 拆 · ${G.browse.length} 逛</span></div>
+    <h2 class="pt">看得多了，眼睛才有标准</h2>
+    <p class="pd">下面这些站我反复看。<b>不要照抄，要看懂它为什么这么做</b>，然后长出自己的那套。</p>
+
+    <div class="grp">拆过设计系统的 · ${G.studied.length}</div>
+    ${G.studied.map(x=>`<div class="dsite">
+      ${x.shot?`<a href="${esc(x.url)}" target="_blank" rel="noopener" class="shot"><img src="img/design/${esc(x.shot)}" alt="${esc(x.name)}" loading="lazy"></a>`:''}
+      <div class="dmeta">
+        <div class="r"><a class="t" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)} ↗</a>
+          ${Object.keys(x.colors).length?`<span class="sw">${['canvas','primary','ink','hairline'].filter(k=>x.colors[k]).map(k=>`<i style="background:${esc(x.colors[k])}" title="${k} ${esc(x.colors[k])}"></i>`).join('')}</span>`:''}</div>
+        <p>${esc(x.line)}</p>
+        ${Object.keys(x.colors).length?`<div class="hex">${['canvas','primary','ink','hairline'].filter(k=>x.colors[k]).map(k=>`${k} ${esc(x.colors[k])}`).join('　')}</div>`:''}
+      </div></div>`).join('')}
+
+    <div class="grp">值得逛的 · ${G.browse.length}</div>
+    <div class="dgrid">${G.browse.map(x=>`<a class="dcard" href="${esc(x.url)}" target="_blank" rel="noopener">
+      ${x.shot?`<img src="img/design/${esc(x.shot)}" alt="${esc(x.name)}" loading="lazy">`:'<span class="nopic"></span>'}
+      <b>${esc(x.name)} ↗</b><span>${esc(x.line)}</span></a>`).join('')}</div>
+
+    <div class="grp">看多了会发现的共性</div>
+    <ul class="rules">${G.rules.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>
+
+    <div class="grp">收敛成四套主题 · 挑一套直接用</div>
+    <div class="kits">${G.kits.map(k=>`<div class="kit">
+      <div class="kit-pv" style="background:${esc(k.canvas)}">
+        <div class="h" style="color:${esc(k.ink)}">${esc(k.mood)}</div>
+        <div class="p" style="color:${esc(k.body)}">${esc(k.use)}</div>
+        <span class="b" style="background:${esc(k.btn_bg||k.accent)};color:${esc(k.btn_ink)};border-radius:${esc(k.radius)}">${esc(k.btn)}</span>
+      </div>
+      <div class="kit-m">
+        <div class="r"><span class="en">${esc(k.id)}</span><span class="cn">${esc(k.cn)}</span></div>
+        <p class="note">${esc(k.note)}</p>
+        <div class="hx">
+          <span><i style="background:${esc(k.canvas)}"></i>${esc(k.canvas)}</span>
+          <span><i style="background:${esc(k.ink)}"></i>${esc(k.ink)}</span>
+          <span><i style="background:${esc(k.accent)}"></i>${esc(k.accent)}</span>
+          <span><i style="background:${esc(k.line)}"></i>${esc(k.line)}</span>
+          <span>圆角 ${esc(k.radius)}</span>
+        </div>
+      </div></div>`).join('')}</div>
+
+    <div class="grp">一套刻度 · 七家里五家以上一致的</div>
+    <div class="scale">${G.scale.map(x=>`<div class="row"><span class="k">${esc(x.k)}</span><span class="v">${esc(x.v)}</span></div>`).join('')}</div>
+    <p class="snote">${esc(G.scale_note)}</p>
+
+    <div class="grp">七条禁令 · 写进提示词，模型就不会犯</div>
+    <ul class="bans">${G.bans.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>
+    <p class="snote">${esc(G.bans_note)}</p>
+    <div class="bancopy"><button type="button" id="cpban">复制这七条</button><span>粘进提示词直接用</span></div>
+    <p class="tiny">${esc(G.source.t)} · <a href="${esc(G.source.url)}" target="_blank" rel="noopener">VoltAgent/awesome-design-md ↗</a>。
+      整个仓库 74 份，Apple、Airbnb、Stripe、Notion、Nike、特斯拉都在里面，每份都含色板 token 和 Do/Don't。
+      用法很直接：把你想要的那份 DESIGN.md 拷进项目，然后告诉 AI「按 DESIGN.md 的规范做这个页面」。</p>
+    <span class="folio">器具 · 设计审美</span>`;}
+  if(ST.tools.view===1)return `<div class="ph"><span>收集的工具</span><span>${D.kit_total} 个</span></div>
+    <h2 class="pt">看到了先收着</h2>
+    <p class="pd">不一定天天用，但值得知道有这么个东西。<b>这份清单会一直长</b>。</p>
+    ${D.kit.map(g=>`<div class="grp">${esc(g.group)} · ${g.items.length}</div>
+      ${g.items.map(i=>`<div class="kit">
+        ${i.url?`<a class="n" href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.name)} ↗</a>`:`<span class="n">${esc(i.name)}</span>`}
+        <p>${esc(i.line)}</p></div>`).join('')}`).join('')}
+    <p class="tiny">往 <code>library/data.json</code> 的 <code>kit</code> 里加一条就多一个。</p>
+    <span class="folio">器具 · 收集</span>`;
+  if(ST.tools.view===2)return `<div class="ph"><span>每周必看的源</span><span>${D.source_total} 个</span></div>
+    <h2 class="pt">我盯着的对话</h2><p class="pd">一流的人在哪儿说话，我就在哪儿听。<b>每一个都能点开</b>，里面有官网、YouTube 和 RSS。</p>
+    ${(()=>{const S=D.sources_full||[];const by={};S.forEach(x=>(by[x.tier]=by[x.tier]||[]).push(x));
+      const TN={1:'每周必看',2:'常看',3:'偶尔翻'};
+      return [1,2,3].filter(t=>by[t]).map(t=>`<div class="grp">${TN[t]} · ${by[t].length}</div>
+        <div class="srcgrid">${by[t].map(x=>`<a class="srccard" href="${esc(x.url||x.site||'#')}" target="_blank" rel="noopener">
+          <b>${esc(x.name)}</b><span>${esc(x.note||x.host)}</span>
+          <i>${esc(x.host)}${x.lang==='zh'?' · 中文':''}</i></a>`).join('')}</div>`).join('');})()}
+    <span class="folio">器具 · 信源</span>`;
+  return `<div class="ph"><span>在用的工具</span><span>${D.tools.reduce((s,g)=>s+g.items.length,0)} 个</span></div>
+    <h2 class="pt">撤掉就卡住的</h2><p class="pd">${esc(D.tools_note)}</p>
+    ${D.tools.map(g=>`<div class="grp">${esc(g.group)}</div>`+g.items.map(i=>`<div class="tl"><b>${esc(i.name)}</b><span>${esc(i.line)}</span></div>`).join('')).join('')}
+    <span class="folio">器具 · 工具</span>`;
+}
+
+/* ---- 绑定 ---- */
+function bind(){
+  $$('[data-nav]').forEach(b=>b.onclick=()=>{
+    const k=b.dataset.nav;
+    if(cur==='people'){ if(k==='toc'){ST.people.view='toc';ST.people.id=null;setHash('people');} }
+    else ST[cur].view=+k;
+    render();
+  });
+  $$('.tocrow').forEach(b=>b.onclick=()=>{ST.people.view='person';ST.people.id=b.dataset.pid;render();
+    const w=D.people.find(x=>String(x.id)===String(b.dataset.pid)); if(w)setHash('p/'+(w.url||w.slug));});
+  $$('[data-pb]').forEach(c=>c.onclick=()=>{ST.people.b=c.dataset.pb;render();});
+  const q=$('#pq'); if(q)q.oninput=e=>{const pos=e.target.selectionStart;ST.people.q=e.target.value;render();
+    const n=$('#pq'); if(n){n.focus();n.setSelectionRange(pos,pos);}};
+  $$('.gal figure').forEach(f=>f.onclick=()=>{$('#lb img').src=f.dataset.src;$('#lb').classList.add('on');});
+  $$('.copy').forEach(b=>b.onclick=async()=>{
+    const url=location.origin+b.dataset.copy;
+    try{await navigator.clipboard.writeText(url);b.textContent='已复制';}
+    catch(e){b.textContent=url;}                    // 剪贴板不给权限就把地址显出来，让人自己选
+    setTimeout(()=>b.textContent='复制链接',1800);});
+}
+$('#lb').onclick=()=>$('#lb').classList.remove('on');
+
+/* ── 地址栏路由：#/people、#/p/andrej-karpathy ──
+   从独立页点「回书桌」带着 hash 回来，这里把它翻开，接上断掉的那一步。 */
+function applyHash(){
+  const raw=decodeURIComponent(location.hash.replace(/^#\/?/,''));
+  if(!raw){return;}
+  const m=raw.match(/^p\/(.+)$/);
+  if(m){
+    const who=D.people.find(x=>(x.url||x.slug)===m[1]);
+    if(who){openBook('people',null);ST.people.view='person';ST.people.id=who.id;render();return;}
+  }
+  if(['people','works','books','tools'].includes(raw)) return openBook(raw);
+  /* #/tools/3 这种：直达某本书的第 N 页，方便把具体一页发给别人 */
+  const sub=raw.match(/^(works|books|tools)\/(\d+)$/);
+  if(sub){const id=sub[1],n=+sub[2];openBook(id,null);ST[id].view=n;render();setHash(raw);}
+}
+addEventListener('hashchange',applyHash);
+applyHash();
+</script>
+</body>
+</html>
